@@ -8,9 +8,9 @@ class FishesRepository {
 
   static const _baseUrl = 'http://acnhapi.com/v1/fish/';
 
-  Future<AllFish> getFishes() async {
+  Future<Fishes> getFishes() async {
     final http.Response response = await http.get(_baseUrl);
     final dynamic jsonBody = json.decode(response.body);
-    return AllFish.fromJson(jsonBody);
+    return Fishes.fromJson(jsonBody);
   }
 }

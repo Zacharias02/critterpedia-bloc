@@ -104,12 +104,12 @@ class Availability {
   Map<String, dynamic> toJson() => _$AvailabilityToJson(this);
 }
 
-class AllFish {
+class Fishes {
   final Map<String, Fish> fishMap;
 
-  AllFish(this.fishMap);
+  Fishes(this.fishMap);
 
-  AllFish.fromJson(Map<String, dynamic> json)
+  Fishes.fromJson(Map<String, dynamic> json)
       : fishMap = json.map(
           (String k, dynamic v) => MapEntry(
             k,
