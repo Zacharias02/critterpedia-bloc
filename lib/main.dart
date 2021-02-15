@@ -4,6 +4,8 @@ import 'package:critterpedia/screens/fish_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'blocs/cubit/fishes_cubit.dart';
+
 void main() => runApp(CritterpediaApp());
 
 class CritterpediaApp extends StatefulWidget {
@@ -15,7 +17,7 @@ class CritterpediaApp extends StatefulWidget {
 class _CritterpediaAppState extends State<CritterpediaApp> {
   // define repository and bloc
   FishesRepository fishesRepository;
-  FishesBloc fishesBloc;
+  FishesCubit fishesCubit;
 
   @override
   void initState() {
@@ -23,16 +25,16 @@ class _CritterpediaAppState extends State<CritterpediaApp> {
 
     // initialize
     fishesRepository = FishesRepository();
-    fishesBloc = FishesBloc(fishesRepository);
+    fishesCubit = FishesCubit(fishesRepository);
 
     // call fetch
-    fishesBloc.add(GetFishesRequested());
+    fishesCubit.getFishes();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<FishesBloc>(
-      create: (context) => fishesBloc,
+    return BlocProvider<FishesCubit>(
+      create: (context) => fishesCubit,
       child: MaterialApp(
         title: 'Critterpedia',
         theme: ThemeData(
