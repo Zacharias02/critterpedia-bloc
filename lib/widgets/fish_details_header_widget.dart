@@ -1,4 +1,5 @@
 import 'package:critterpedia/models/fish_model.dart';
+import 'package:critterpedia/widgets/favorite_button.dart';
 import 'package:critterpedia/widgets/fish_icon_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,17 @@ class FishDetailsHeaderWidget extends StatelessWidget {
               child: BackButton(
                 color: Colors.white,
               ),
-            )
+            ),
+            Positioned(
+              bottom: 48.0,
+              right: MediaQuery.of(context).size.width / 8,
+              child: Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.white,
+                  ),
+                  child: FavoriteButton(fish.fileName)),
+            ),
           ],
         ));
   }

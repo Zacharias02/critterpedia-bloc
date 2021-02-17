@@ -1,4 +1,4 @@
-import 'package:critterpedia/blocs/bloc/fishes_bloc.dart';
+import 'package:critterpedia/blocs/favorites/favorites_cubit.dart';
 import 'package:critterpedia/repositories/fishes_repositories.dart';
 import 'package:critterpedia/screens/fish_list_screen.dart';
 import 'package:flutter/material.dart';
@@ -33,14 +33,17 @@ class _CritterpediaAppState extends State<CritterpediaApp> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<FishesCubit>(
-      create: (context) => fishesCubit,
-      child: MaterialApp(
-        title: 'Critterpedia',
-        theme: ThemeData(
-          primarySwatch: Colors.lightBlue,
+    return BlocProvider<FavoritesCubit>(
+      create: (context) => FavoritesCubit(),
+      child: BlocProvider<FishesCubit>(
+        create: (context) => fishesCubit,
+        child: MaterialApp(
+          title: 'Critterpedia',
+          theme: ThemeData(
+            primarySwatch: Colors.lightBlue,
+          ),
+          home: MainPage(),
         ),
-        home: MainPage(),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:critterpedia/models/fish_model.dart';
 import 'package:critterpedia/screens/fish_details_screen.dart';
+import 'package:critterpedia/widgets/favorite_button.dart';
 import 'package:critterpedia/widgets/fish_icon_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -57,6 +58,7 @@ class FishRowWidget extends StatelessWidget {
                 ),
               ),
             ),
+            FavoriteButton(fish.fileName),
           ],
         ),
       ),
