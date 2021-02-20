@@ -1,10 +1,5 @@
-import 'package:critterpedia/blocs/favorites/favorites_cubit.dart';
-import 'package:critterpedia/repositories/fishes_repositories.dart';
 import 'package:critterpedia/screens/fish_list_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'blocs/cubit/fishes_cubit.dart';
 
 void main() => runApp(CritterpediaApp());
 
@@ -15,36 +10,26 @@ class CritterpediaApp extends StatefulWidget {
 }
 
 class _CritterpediaAppState extends State<CritterpediaApp> {
-  // define repository and bloc
-  FishesRepository fishesRepository;
-  FishesCubit fishesCubit;
+  // TODO: define repository and bloc here
 
   @override
   void initState() {
     super.initState();
 
-    // initialize
-    fishesRepository = FishesRepository();
-    fishesCubit = FishesCubit(fishesRepository);
+    // TODO: initialize repository and bloc here
 
-    // call fetch
-    fishesCubit.getFishes();
+    // TODO: execute event to fetch
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<FavoritesCubit>(
-      create: (context) => FavoritesCubit(),
-      child: BlocProvider<FishesCubit>(
-        create: (context) => fishesCubit,
-        child: MaterialApp(
-          title: 'Critterpedia',
-          theme: ThemeData(
-            primarySwatch: Colors.lightBlue,
-          ),
-          home: MainPage(),
-        ),
+    // TODO: add blocprovider here
+    return MaterialApp(
+      title: 'Critterpedia',
+      theme: ThemeData(
+        primarySwatch: Colors.lightBlue,
       ),
+      home: MainPage(),
     );
   }
 }
